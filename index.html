@@ -1,48 +1,100 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Descarga YT-DLP Tool</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1e1e2f, #2a2a3d);
-            color: #f0f0f0;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            color: #ccc;
-        }
-        .btn {
-            background-color: #00b894;
-            color: white;
-            padding: 15px 25px;
-            margin: 15px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .btn:hover {
-            background-color: #019874;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descarga YT-DLP Tool</title>
+  
+  <!-- Estilos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0d0d26;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .botones {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      background: #00cc99;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-size: 1rem;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+    }
+
+    /* Fondo de partículas */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
 </head>
 <body>
-    <h1>Descargá tus archivos</h1>
-    <p>Accedé rápidamente a la guía y al script para automatizar tus descargas con yt-dlp</p>
-    <a class="btn" href="guia_tutorial.txt" download>📄 Descargar Guía</a>
-    <a class="btn" href="descargar_video.bat" download>⚙️ Descargar Script</a>
+  <!-- Fondo animado -->
+  <div id="particles-js"></div>
+
+  <!-- Contenido principal -->
+  <div class="contenido-principal">
+    <h1 class="animate__animated animate__fadeInDown">Descargá tus archivos</h1>
+    <p class="animate__animated animate__fadeIn animate__delay-1s">
+      Accedé rápidamente a la guía y al script para automatizar tus descargas con yt-dlp
+    </p>
+    <div class="botones animate__animated animate__fadeInUp animate__delay-2s">
+      <a href="https://raw.githubusercontent.com/Juantech-create/YTDescargador/refs/heads/main/Guia%20paso%20a%20paso.txt" download><button>📄 Descargar Guía</button></a>
+      <a href="https://raw.githubusercontent.com/Juantech-create/YTDescargador/refs/heads/main/Descargar_Videos.bat" download><button>⚙️ Descargar Script</button></a>
+    </div>
+  </div>
+
+  <!-- Script de partículas -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 80 },
+        "color": { "value": "#00ffcc" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3 },
+        "move": { "enable": true, "speed": 2 }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
