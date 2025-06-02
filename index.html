@@ -3,156 +3,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Descargador de Videos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <title>Descargador YouTube - Juantech</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      font-family: 'Orbitron', sans-serif;
-      background-color: #0d0d0d;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f0f;
       color: white;
       overflow: hidden;
-      height: 100vh;
     }
-
-    #particles-js {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
     }
-
     .container {
-      position: relative;
-      z-index: 1;
       text-align: center;
-      top: 30%;
-      animation: fadeIn 1.5s ease-out;
+      padding-top: 12vh;
+      animation: fadeIn 2s ease-in-out;
     }
-
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      animation: slideDown 1.5s ease-out;
+      font-size: 3em;
+      margin-bottom: 0.5em;
+      animation: slideDown 1.5s ease;
     }
-
     p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      color: #cccccc;
-      animation: slideUp 1.5s ease-out;
+      font-size: 1.3em;
+      margin-bottom: 2em;
+      color: #ccc;
     }
-
     .btn {
-      padding: 15px 30px;
-      background: linear-gradient(90deg, #00ffe7, #007bff);
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
       border: none;
+      padding: 1em 2em;
+      font-size: 1.1em;
       border-radius: 10px;
-      font-size: 1rem;
-      color: white;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 20px #00ffe7;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin: 10px;
     }
-
     .btn:hover {
       transform: scale(1.1);
-      box-shadow: 0 0 30px #00ffe7, 0 0 60px #007bff;
+      box-shadow: 0 0 20px #00c6ff;
     }
-
     .footer {
       position: absolute;
       bottom: 15px;
       width: 100%;
       text-align: center;
-      font-size: 0.9rem;
-      color: #888;
+      color: #666;
+      font-weight: bold;
       letter-spacing: 1px;
-    }
-
-    .footer span {
-      color: #00ffe7;
     }
 
     @keyframes fadeIn {
       from { opacity: 0 }
       to { opacity: 1 }
     }
-
     @keyframes slideDown {
-      from { transform: translateY(-30px); opacity: 0 }
-      to { transform: translateY(0); opacity: 1 }
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0 }
-      to { transform: translateY(0); opacity: 1 }
+      from { transform: translateY(-30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <div id="particles-js"></div>
+  <canvas id="bg"></canvas>
+
   <div class="container">
-    <h1>Descargador Automático</h1>
-    <p>Instalá todo con esta guía y descargá videos en segundos.</p>
-    <button class="btn" onclick="playClick(); window.open(<a href="https://raw.githubusercontent.com/Juantech-create/YTDescargador/refs/heads/main/Descargar_Videos.bat" download="Descargar_Videos.bat">
-  <button class="btn" onclick="playClick()">Descargar Script</button>)">Descargar Script</button><br/><br/>
-    <button class="btn" onclick="playClick(); window.open(<a href="https://raw.githubusercontent.com/Juantech-create/YTDescargador/refs/heads/main/Guia%20paso%20a%20paso.txt" download="Guia paso a paso.txt">
-  <button class="btn" onclick="playClick()">Ver Guía</button>
-</a>)">Ver Guía</button>
+    <h1>Descargador de YouTube</h1>
+    <p>Configurá todo con un solo clic. Fácil, rápido y gratuito.</p>
+
+    <!-- Botones de descarga ZIP -->
+    <a href="https://github.com/Juantech-create/YTDescargador/raw/main/Descargar_Videos.zip" download="Descargar_Videos.zip">
+      <button class="btn" onclick="playClick()">Descargar Script</button>
+    </a><br/><br/>
+
+    <a href="https://github.com/Juantech-create/YTDescargador/raw/main/Guia%20paso%20a%20paso.zip" download="Guia paso a paso.zip">
+      <button class="btn" onclick="playClick()">Ver Guía</button>
+    </a>
   </div>
 
-  <div class="footer">Creado por <span>Juantech</span></div>
+  <div class="footer">Juantech</div>
 
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 60 },
-        "color": { "value": "#00ffe7" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5 },
-        "size": { "value": 3 },
-        "line_linked": {
-          "enable": true,
-          "distance": 150,
-          "color": "#00ffe7",
-          "opacity": 0.4,
-          "width": 1
-        },
-        "move": {
-          "enable": true,
-          "speed": 2,
-          "direction": "none",
-          "random": false,
-          "straight": false,
-          "out_mode": "bounce",
-          "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 }
-        }
-      },
-      "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-          "onhover": { "enable": true, "mode": "repulse" },
-          "onclick": { "enable": true, "mode": "push" },
-          "resize": true
-        },
-        "modes": {
-          "repulse": { "distance": 100, "duration": 0.4 }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
+  <!-- Efecto sonido -->
+  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4597465746.mp3?filename=mouse-click-124481.mp3"></audio>
 
-  <!-- Click sound -->
-  <audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3" preload="auto"></audio>
   <script>
     function playClick() {
-      document.getElementById('clickSound').play();
+      const sound = document.getElementById("clickSound");
+      sound.currentTime = 0;
+      sound.play();
     }
+
+    // Fondo interactivo con partículas
+    const canvas = document.getElementById('bg');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 2 + 1,
+        speedX: (Math.random() - 0.5) * 1,
+        speedY: (Math.random() - 0.5) * 1
+      });
+    }
+
+    let mouse = { x: null, y: null };
+    window.addEventListener('mousemove', function(e) {
+      mouse.x = e.x;
+      mouse.y = e.y;
+    });
+
+    function drawParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0, 255, 255, 0.6)';
+        ctx.fill();
+
+        // Movimiento
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        // Rebote
+        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+
+        // Interacción con mouse
+        let dx = mouse.x - p.x;
+        let dy = mouse.y - p.y;
+        let dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 100) {
+          p.x -= dx * 0.03;
+          p.y -= dy * 0.03;
+        }
+      }
+      requestAnimationFrame(drawParticles);
+    }
+    drawParticles();
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
   </script>
 </body>
 </html>
