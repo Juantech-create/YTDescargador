@@ -15,3 +15,4 @@ yt-dlp -o "C:\Videos_Descargados\%%(title)s.%%(ext)s" %VIDEO_URL%
 echo.
 echo Descarga finalizada. El video fue guardado en C:\Videos_Descargados
 pause
+Eliminar archivos viejos que ya no se usan
