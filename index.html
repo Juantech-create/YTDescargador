@@ -1,100 +1,155 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Descarga YT-DLP Tool</title>
-  
-  <!-- Estilos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Descargador de Videos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0d0d26;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0d0d0d;
       color: white;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
       text-align: center;
-      padding: 50px 20px;
-      overflow-x: hidden;
+      top: 30%;
+      animation: fadeIn 1.5s ease-out;
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      margin-bottom: 0.5rem;
+      animation: slideDown 1.5s ease-out;
     }
 
     p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #cccccc;
+      animation: slideUp 1.5s ease-out;
     }
 
-    .botones {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    button {
-      background: #00cc99;
+    .btn {
+      padding: 15px 30px;
+      background: linear-gradient(90deg, #00ffe7, #007bff);
       border: none;
-      padding: 15px 25px;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 1rem;
       color: white;
       cursor: pointer;
-      transition: transform 0.2s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 20px #00ffe7;
     }
 
-    button:hover {
+    .btn:hover {
       transform: scale(1.1);
+      box-shadow: 0 0 30px #00ffe7, 0 0 60px #007bff;
     }
 
-    /* Fondo de partículas */
-    #particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
+    .footer {
+      position: absolute;
+      bottom: 15px;
       width: 100%;
-      height: 100%;
-      z-index: -1;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #888;
+      letter-spacing: 1px;
+    }
+
+    .footer span {
+      color: #00ffe7;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-30px); opacity: 0 }
+      to { transform: translateY(0); opacity: 1 }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0 }
+      to { transform: translateY(0); opacity: 1 }
     }
   </style>
 </head>
 <body>
-  <!-- Fondo animado -->
   <div id="particles-js"></div>
-
-  <!-- Contenido principal -->
-  <div class="contenido-principal">
-    <h1 class="animate__animated animate__fadeInDown">Descargá tus archivos</h1>
-    <p class="animate__animated animate__fadeIn animate__delay-1s">
-      Accedé rápidamente a la guía y al script para automatizar tus descargas con yt-dlp
-    </p>
-    <div class="botones animate__animated animate__fadeInUp animate__delay-2s">
-      <a href="https://raw.githubusercontent.com/Juantech-create/YTDescargador/refs/heads/main/Guia%20paso%20a%20paso.txt" download><button>📄 Descargar Guía</button></a>
-      <a href="https://raw.githubusercontent.com/Juantech-create/YTDescargador/refs/heads/main/Descargar_Videos.bat" download><button>⚙️ Descargar Script</button></a>
-    </div>
+  <div class="container">
+    <h1>Descargador Automático</h1>
+    <p>Instalá todo con esta guía y descargá videos en segundos.</p>
+    <button class="btn" onclick="playClick(); window.open('https://raw.githubusercontent.com/Juantech-create/YTDescargador/refs/heads/main/Descargar_Videos.bat')">Descargar Script</button><br/><br/>
+    <button class="btn" onclick="playClick(); window.open('https://raw.githubusercontent.com/Juantech-create/YTDescargador/refs/heads/main/Guia%20paso%20a%20paso.txt')">Ver Guía</button>
   </div>
 
-  <!-- Script de partículas -->
+  <div class="footer">Creado por <span>Juantech</span></div>
+
+  <!-- Particles.js -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
-    particlesJS('particles-js', {
+    particlesJS("particles-js", {
       "particles": {
-        "number": { "value": 80 },
-        "color": { "value": "#00ffcc" },
+        "number": { "value": 60 },
+        "color": { "value": "#00ffe7" },
         "shape": { "type": "circle" },
         "opacity": { "value": 0.5 },
         "size": { "value": 3 },
-        "move": { "enable": true, "speed": 2 }
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00ffe7",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 2,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "bounce",
+          "attract": { "enable": true, "rotateX": 600, "rotateY": 1200 }
+        }
       },
       "interactivity": {
+        "detect_on": "canvas",
         "events": {
-          "onhover": { "enable": true, "mode": "repulse" }
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" },
+          "resize": true
+        },
+        "modes": {
+          "repulse": { "distance": 100, "duration": 0.4 }
         }
-      }
+      },
+      "retina_detect": true
     });
+  </script>
+
+  <!-- Click sound -->
+  <audio id="clickSound" src="https://assets.mixkit.co/sfx/preview/mixkit-select-click-1109.mp3" preload="auto"></audio>
+  <script>
+    function playClick() {
+      document.getElementById('clickSound').play();
+    }
   </script>
 </body>
 </html>
