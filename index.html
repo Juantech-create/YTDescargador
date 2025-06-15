@@ -11,6 +11,8 @@
       color: #ffffff;
       text-align: center;
       padding: 40px;
+      margin: 0;
+      overflow-x: hidden;
     }
     h1 {
       font-size: 2.5rem;
@@ -57,9 +59,18 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
   </style>
 </head>
 <body>
+  <div id="particles-js"></div>
   <h1>Descargá las herramientas</h1>
   <p>Todo lo que necesitás para automatizar tus descargas de video fácilmente.</p>
 
@@ -78,7 +89,7 @@
     <p style="font-size: 1.1rem; margin-bottom: 20px; animation: fadeIn 1.4s ease;">
       Script personalizado para liberar espacio y mantener tu Windows en óptimas condiciones.
     </p>
-    <a href="PK" download class="button" onclick="playClick()">
+    <a href="https://raw.githubusercontent.com/Juantech-create/YTDescargador/refs/heads/main/limpieza.zip" download class="button" onclick="playClick()">
       <img src="https://img.icons8.com/ios-filled/24/ffffff/broom.png" class="icon"/>Descargar Limpieza Automática
     </a>
   </section>
@@ -87,7 +98,7 @@
     Hecho por Juantech. No te olvides de suscribirte ;)
   </footer>
 
-  <audio id="clickSound" src="https://www.myinstants.com/media/sounds/mouse-click.mp3"></audio>
+  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_674a0a88a6.mp3?filename=click-124467.mp3"></audio>
   <script>
     function playClick() {
       const sound = document.getElementById('clickSound');
@@ -97,8 +108,49 @@
       }
     }
   </script>
+
+  <!-- Partículas -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 70, density: { enable: true, value_area: 800 } },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.3, random: true },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#ffffff',
+          opacity: 0.2,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' },
+          resize: true
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 </html>
 
-</body>
-</html>
