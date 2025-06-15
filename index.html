@@ -1,157 +1,104 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Descargador YouTube - Juantech</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descarga de Herramientas</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0f0f0f;
-      color: white;
-      overflow: hidden;
-    }
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
-    .container {
+      background-color: #121212;
+      color: #ffffff;
       text-align: center;
-      padding-top: 12vh;
-      animation: fadeIn 2s ease-in-out;
+      padding: 40px;
     }
     h1 {
-      font-size: 3em;
-      margin-bottom: 0.5em;
-      animation: slideDown 1.5s ease;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      animation: fadeInDown 1s ease;
     }
     p {
-      font-size: 1.3em;
-      margin-bottom: 2em;
-      color: #ccc;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      animation: fadeIn 1.5s ease;
     }
-    .btn {
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      border: none;
-      padding: 1em 2em;
-      font-size: 1.1em;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    .button {
+      display: inline-block;
+      padding: 15px 30px;
       margin: 10px;
+      font-size: 1.1rem;
+      color: #fff;
+      background: #007acc;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
-    .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px #00c6ff;
+    .button:hover {
+      background: #00b37a;
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #00ffcc;
     }
-    .footer {
-      position: absolute;
-      bottom: 15px;
-      width: 100%;
-      text-align: center;
-      color: #666;
-      font-weight: bold;
-      letter-spacing: 1px;
+    .icon {
+      margin-right: 10px;
+      vertical-align: middle;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0 }
-      to { opacity: 1 }
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #999;
     }
-    @keyframes slideDown {
+    @keyframes fadeInDown {
       from { transform: translateY(-30px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <canvas id="bg"></canvas>
+  <h1>Descargá las herramientas</h1>
+  <p>Todo lo que necesitás para automatizar tus descargas de video fácilmente.</p>
 
-  <div class="container">
-    <h1>Descargador de YouTube</h1>
-    <p>Configurá todo con un solo clic. Fácil, rápido y gratuito.</p>
+  <a href="descargar_video.bat" download class="button" onclick="playClick()">
+    <img src="https://img.icons8.com/ios-filled/24/ffffff/download--v1.png" class="icon"/>Descargar Script (.bat)
+  </a>
+  <a href="guia_tutorial.txt" download class="button" onclick="playClick()">
+    <img src="https://img.icons8.com/ios-filled/24/ffffff/book.png" class="icon"/>Guía Paso a Paso (.txt)
+  </a>
 
-    <!-- Botones de descarga ZIP -->
-    <a href="https://github.com/Juantech-create/YTDescargador/raw/main/Descargar_Videos.zip" download="Descargar_Videos.zip">
-      <button class="btn" onclick="playClick()">Descargar Script</button>
-    </a><br/><br/>
-
-    <a href="https://github.com/Juantech-create/YTDescargador/raw/main/Guia%20paso%20a%20paso.zip" download="Guia paso a paso.zip">
-      <button class="btn" onclick="playClick()">Ver Guía</button>
+  <!-- NUEVA SECCIÓN: Limpieza del sistema -->
+  <section style="margin-top: 60px;">
+    <h2 style="font-size: 2rem; color: #00cc66; animation: fadeInDown 1.2s ease;">
+      🧹 Limpieza automática del sistema
+    </h2>
+    <p style="font-size: 1.1rem; margin-bottom: 20px; animation: fadeIn 1.4s ease;">
+      Script personalizado para liberar espacio y mantener tu Windows en óptimas condiciones.
+    </p>
+    <a href="PK" download class="button" onclick="playClick()">
+      <img src="https://img.icons8.com/ios-filled/24/ffffff/broom.png" class="icon"/>Descargar Limpieza Automática
     </a>
-  </div>
+  </section>
 
-  <div class="footer">Juantech</div>
+  <footer>
+    Hecho por Juantech. No te olvides de suscribirte ;)
+  </footer>
 
-  <!-- Efecto sonido -->
-  <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_4597465746.mp3?filename=mouse-click-124481.mp3"></audio>
-
+  <audio id="clickSound" src="https://www.myinstants.com/media/sounds/mouse-click.mp3"></audio>
   <script>
     function playClick() {
-      const sound = document.getElementById("clickSound");
-      sound.currentTime = 0;
-      sound.play();
-    }
-
-    // Fondo interactivo con partículas
-    const canvas = document.getElementById('bg');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    let particles = [];
-    for (let i = 0; i < 100; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 1,
-        speedX: (Math.random() - 0.5) * 1,
-        speedY: (Math.random() - 0.5) * 1
-      });
-    }
-
-    let mouse = { x: null, y: null };
-    window.addEventListener('mousemove', function(e) {
-      mouse.x = e.x;
-      mouse.y = e.y;
-    });
-
-    function drawParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let p of particles) {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 255, 255, 0.6)';
-        ctx.fill();
-
-        // Movimiento
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        // Rebote
-        if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
-
-        // Interacción con mouse
-        let dx = mouse.x - p.x;
-        let dy = mouse.y - p.y;
-        let dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 100) {
-          p.x -= dx * 0.03;
-          p.y -= dy * 0.03;
-        }
+      const sound = document.getElementById('clickSound');
+      if (sound) {
+        sound.currentTime = 0;
+        sound.play();
       }
-      requestAnimationFrame(drawParticles);
     }
-    drawParticles();
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
   </script>
+</body>
+</html>
+
 </body>
 </html>
